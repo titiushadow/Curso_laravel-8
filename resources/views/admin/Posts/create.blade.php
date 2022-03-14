@@ -11,16 +11,24 @@
   <body>
     <h1 class="text-center">Cadastro de Posts</h1>
 
+    @if ($errors->any())
+    <ul>
+        @foreach ($errors as $error)
+        <li>{{$error}}</li>
+        @endforeach
+    </ul>
+    @endif
+
   <form action="{{ route('posts.store') }}" method="POST">
   <div class="mb-6">
       @csrf
     <label for="text" class="form-label">titulo</label>
-    <input type="form-control" class="form-control" id="title" placeholder="Titulo">
+    <input type="form-control" class="form-control" id="title" placeholder="Titulo" value="{{ old('title') }}">
   </div>
 
   <div class="mb-6">
     <label for="text" class="form-label">Descrição</label>
-    <textarea class="form-control" id="content" rows="3"></textarea>
+    <textarea class="form-control" id="content" rows="3" value="{{ old('title') }}"></textarea>
     <button type="submit">Enviar</button>
   </div>
     </form>
