@@ -29,7 +29,7 @@
   <div class="mb-6">
     <label for="text" class="form-label">Descrição</label>
     <textarea class="form-control" id="content" rows="3" value="{{ old('title') }}"></textarea>
-    <button type="submit">Enviar</button>
+    <button type="submit">Postar</button>
   </div>
     </form>
 
