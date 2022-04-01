@@ -1,5 +1,11 @@
 <h1>Posts</h1>
 
+<Form action="{{ route('posts.search')}}" method="post">
+    @csrf
+    <input type="text" name="search" placeholder="Filtrar">
+    <button type="submit">Filtrar</button>
+</Form>
+
 @if(session('message'))
 <div>
     {{ session('message') }}

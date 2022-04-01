@@ -49,4 +49,14 @@ class PostController extends Controller
         ->route('posts.index')
         ->with('message' , 'Post deletado com sucesso');
     }
+
+    public function search(Request $request)
+    {
+        $posts = Post::where('title', '=', $request->search)
+                            ->orWhere('content', 'LIKE', "%{$request->search}%")
+                            ->paginate();
+        return view('admin.Posts.index', compact('posts'));
+    }
+
+
 }
