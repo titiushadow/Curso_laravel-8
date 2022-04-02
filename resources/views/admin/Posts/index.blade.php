@@ -14,6 +14,7 @@
 
 @foreach ($posts as $Post )
     <p>{{$Post->title}} [<a href="{{ route('posts.show' , $Post -> id)  }}">Ver]</a></p>
+    <p>{{$Post->title}} [<a href="{{ route('posts.edit' , $Post -> id)  }}">editar]</a></p>
 @endforeach
 
 <button>

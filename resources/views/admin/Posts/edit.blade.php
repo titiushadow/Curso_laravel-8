@@ -8,10 +8,20 @@
   </head>
 
   <body>
-    <h1 class="text-center">Cadastro de Posts</h1>
+    <h1 class="text-center">Editar o Post<strong>{{ $Post->title }}</strong></h1>
 
-  <form action="{{ route('posts.store') }}" method="POST">
-    @include('admin\Posts\_Partials\form')
+    @if ($errors->any())
+    <ul>
+        @foreach ($errors as $error)
+        <li>{{$error}}</li>
+        @endforeach
+    </ul>
+    @endif
+
+  <form action=" {{ route('post.update', $Post->id)  }} " method="POST">
+  <div class="mb-6">
+      @method('put')
+      @include('admin.pages._partials.form')
     </form>
 
   </body>
