@@ -1,3 +1,8 @@
+@extends('admin.Posts.layouts.app')
+
+@section('title', 'Editar o Post'{$Post->title})
+
+@section('content')
 <!doctype html>
 <html lang="pt">
   <head>
@@ -26,3 +31,5 @@
 
   </body>
 </html>
+
+@endsection
