@@ -1,3 +1,8 @@
+@extends('admin.Posts.layouts.app')
+
+@section('title' , 'listagem dos posts')
+
+@section('content')
 <h1>Posts</h1>
 
 <Form action="{{ route('posts.search')}}" method="post">
@@ -18,5 +23,7 @@
 @endforeach
 
 <button>
-<a href="{{ route('posts.create') }}">Criar um novo Post</a>
+    <a href="{{ route('posts.create') }}">Criar um novo Post</a>
 </button>
+
+@endsection
