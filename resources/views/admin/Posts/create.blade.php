@@ -1,3 +1,9 @@
+@extends('admin.Posts.layouts.app')
+
+@section('title' , 'Criar novo Post')
+
+@section('content')
+
 <!doctype html>
 <html lang="pt">
   <head>
@@ -16,3 +22,5 @@
 
   </body>
 </html>
+
+@endsection
