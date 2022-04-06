@@ -23,7 +23,7 @@
     </ul>
     @endif
 
-  <form action=" {{ route('post.update', $Post->id)  }} " method="POST">
+  <form action=" {{ route('post.update', $Post->id)  }} " method="POST" enctype="multipart/form-data">
   <div class="mb-6">
       @method('put')
       @include('admin.pages._partials.form')
