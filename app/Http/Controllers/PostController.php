@@ -96,8 +96,7 @@ class PostController extends Controller
                 $nameFile = Str::of($request->title)->slug('-') . '.' . $request->image->getClientOriginalExtension();
 
                $image = $request->image->sToreAs('posts', $nameFile);
-                $data['image'] = $image;
-
+               $data['image'] = $image;
             }
 
             $Post->update($data);
