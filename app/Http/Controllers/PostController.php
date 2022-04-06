@@ -22,7 +22,19 @@ class PostController extends Controller
 
     public function store(StoreUpdatePost $request)
     {
-        Post::create($request->all());
+
+        $data = $request->all();
+
+        if ($request->image->isValid()) {
+
+            $nameFile = Str::of($request->title)->slug('-') . '.' . $request->image->getClientOriginalExtension();
+
+           $image = $request->image->sToreAs('posts', $nameFile);
+            $data['image'] = $image;
+
+        }
+
+        Post::create($data);
 
         return redirect()->route('posts.index');
     }
