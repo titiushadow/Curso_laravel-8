@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpdatePost;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 
 class PostController extends Controller
 {
@@ -55,6 +58,9 @@ class PostController extends Controller
         if (!$Post =  Post::find($id))
             return redirect()->route('posts.index');
 
+            if (Storage::exists($post->image))
+                Storage::delete($post->image);
+
         $Post->delete();
 
         return redirect()
@@ -76,10 +82,25 @@ class PostController extends Controller
 
     public function update(StoreUpdatePost $Request, $id)
     {
-        if (!$Post = Post::find($id))
+        if (!$Post = Post::find($id)) {
             return redirect()->back();
 
-            $Post->update($Request->all());
+        }
+
+             $data = $request->all();
+
+            if ($request->image->isValid()) {
+                if (Storage::exists($post->image))
+                    Storage::delete($post->image);
+
+                $nameFile = Str::of($request->title)->slug('-') . '.' . $request->image->getClientOriginalExtension();
+
+               $image = $request->image->sToreAs('posts', $nameFile);
+                $data['image'] = $image;
+
+            }
+
+            $Post->update($data);
 
             return redirect()
                 ->route('posts.index')
