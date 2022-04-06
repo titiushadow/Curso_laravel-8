@@ -16,7 +16,7 @@
   <body>
     <h1 class="text-center">Cadastro de Posts</h1>
 
-  <form action="{{ route('posts.store') }}" method="POST">
+  <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
     @include('admin\Posts\_Partials\form')
     </form>
 

@@ -8,6 +8,7 @@
 
 
     @csrf
+    <input type="file" name="image" id="image">
     <label for="text" class="form-label">titulo</label>
     <input type="form-control" class="form-control" id="title" placeholder="Titulo" value="{{ $Post->title ?? old('title') }}">
   </div>
